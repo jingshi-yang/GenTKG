@@ -55,6 +55,7 @@ from llama2_ori_repo.llama.tokenizer import Tokenizer
 from neox import init_neox, text_generation
 from data_utils.basic import blockPrinting
 
+
 Role = Literal["system", "user", "assistant"]
 
 if TYPE_CHECKING:
@@ -1515,6 +1516,7 @@ class Evaler:
                      for pattern in self.patterns]
         return answer, answer_regs
     
+
     #@blockPrinting
     def eval(self, c, cnt=0, path_results=None, filter_yes=True):
         query = ""
@@ -1548,6 +1550,8 @@ class Evaler:
             and the query in the form of "{time}:[{subject}, {relation}," in the end.\n\
             You must generate {object_label}.{object}\n\n<</SYS>>'''
             self.args.PROMPT = ins + his_query + '[/INST]' if self.args.instruct_yes else his_query
+
+            print(self.args.PROMPT)
 
             if query not in set_checked_qu:
                 set_checked_qu.add(query)

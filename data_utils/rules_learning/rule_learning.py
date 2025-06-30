@@ -274,7 +274,6 @@ class Rule_Learner(object):
                 rules_str += verbalize_rule(rule, self.id2relation) + "\n"
 
         filename = "{0}_r{1}_n{2}_{3}_s{4}_rules.txt".format(
-        # filename = "YAGO_rules.txt".format(
             dt, rule_lengths, num_walks, transition_distr, seed
         )
         filename = filename.replace(" ", "")

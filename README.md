@@ -139,7 +139,7 @@ python3 inference.py --LORA_CHECKPOINT_DIR "path of model checkpoint" --output_f
 ```
 Example for testing: 
 ```
-python3 main.py --LORA_CHECKPOINT_DIR "./model/icews14" --output_file "./results/prediction_icews14.txt"  --input_file "./data/processed/eval/history_facts/history_facts_icews14.txt"  --test_ans_file "./data/processed/eval/test_answers/test_ans_icews14.csv"
+python3 inference.py --LORA_CHECKPOINT_DIR "./model/icews14" --output_file "./results/prediction_icews14.txt"  --input_file "./data/processed/eval/history_facts/history_facts_icews14.txt"  --test_ans_file "./data/processed/eval/test_answers/test_ans_icews14.txt"
 ```
 Testing parameters (in eval_utils.py):
 

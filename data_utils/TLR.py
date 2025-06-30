@@ -75,6 +75,7 @@ class Retriever:
         return test_idx, test_text
     
     def tlogic_prepro(self, i):
+        print(self.test[i].strip().split("\t"))
         test_sub, test_rel, _, test_time, _ = self.test[i].strip().split("\t")
         #First of all, there must be a time premise of retrieve s_t
         #Here we need to find out the idx of test in all_facts so that it can be removed

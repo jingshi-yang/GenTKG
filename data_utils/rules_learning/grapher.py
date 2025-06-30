@@ -92,7 +92,7 @@ class Grapher(object):
         Returns:
             quads (np.ndarray): indices of quadruples
         """
-        # print([quads[0:3]])
+
         subs = [self.entity2id[x[0]] for x in quads]
         rels = [self.relation2id[x[1]] for x in quads]
         objs = [self.entity2id[x[2]] for x in quads]

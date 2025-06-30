@@ -1,6 +1,6 @@
 from TLR import Retriever
 from basic import read_txt_as_list, read_json, write_txt
-from id_words import convert_dataset
+from id_words import convert_dataset, convert_nonflip_dataset
 import os, glob
 import argparse
 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
         entities = read_json(path_workspace+'entity2id.json')
         times_id = read_json(path_workspace+'ts2id.json')
         
-        test_ans = convert_dataset(test_ans, path_workspace, period=period)
+        test_ans = convert_nonflip_dataset(test_ans, path_workspace,end='', period=period)
         
         chains = read_json(path_out_tl+name_rules)
         rel_keys = list(relations.keys())

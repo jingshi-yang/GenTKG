@@ -2,7 +2,7 @@ datasets==2.13.1
 fairscale==0.4.13
 fire==0.5.0
 numpy==1.24.3
-peft==0.7.2.dev0
+peft==0.8.0
 PyYAML==6.0.1
 sentencepiece==0.1.99
 setuptools==68.0.0
@@ -11,3 +11,4 @@ torch==2.0.0
 tqdm==4.65.0
 transformers==4.30.2
 wandb==0.15.10
+bitsandbytes==0.44.0
