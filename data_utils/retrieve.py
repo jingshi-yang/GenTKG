@@ -45,7 +45,7 @@ if __name__ == "__main__":
     li_files = ['train','valid','test']#  ['train','valid','test'] or  ['test'] when only test set is needed
     
     for files in li_files:
-        print("exiting rules:", glob.glob(path_out_tl+'*rules.json'))
+        print("existing rules:", glob.glob(path_out_tl+'*rules.json'))
         dir_rules = glob.glob(path_out_tl+'*rules.json')[0] if name_rules=="" else path_out_tl+name_rules
         print("files", files)
         test_ans = read_txt_as_list(path_workspace+files+'.txt')
@@ -54,7 +54,8 @@ if __name__ == "__main__":
         entities = read_json(path_workspace+'entity2id.json')
         times_id = read_json(path_workspace+'ts2id.json')
         
-        test_ans = convert_nonflip_dataset(test_ans, path_workspace,end='', period=period)
+        test_ans = convert_nonflip_dataset(test_ans, path_workspace,end='', period=1)
+        print(test_ans[:5])
         
         chains = read_json(path_out_tl+name_rules)
         rel_keys = list(relations.keys())

@@ -3,6 +3,7 @@ from basic import read_json, flip_dict, str_dict, read_txt_as_list, write_txt, c
 
 
 def convert(str_in, dict_in):
+    #print(str_in)
     return dict_in[str_in]
 
 
@@ -11,11 +12,14 @@ def id_words(li, dict_ent, dict_r, dict_t, end=str(0), period=1):
     for line in li:
         columns = line.strip().split('\t')
         #print(columns)
+        #print(dict_ent)
+        #print(dict_r)
+        #print(dict_t)
         columns[0] = str(convert(str(columns[0]),dict_ent))
         columns[1] = str(convert(columns[1],dict_r))
         columns[2] = str(convert(columns[2],dict_ent))
         #print(columns[3])
-        #columns[3] = str(convert(str(int(columns[3])*period),dict_t))
+        columns[3] = str(convert(str(columns[3]*period),dict_t))
         line = "\t".join([columns[0], columns[1], columns[2], columns[3], end])
         li_new.append(line)
     return li_new
@@ -30,8 +34,6 @@ def convert_dataset(li_to_convert, path_workspace, end=str(0), period=1):
                         str_dict(flip_dict(relations)),
                         str_dict(flip_dict(times_id)), end, period) #convert list in ids to list in words
     return test_ans
-
-
 
 
 def convert_nonflip_dataset(li_to_convert, path_workspace, end=str(0), period=1):

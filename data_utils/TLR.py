@@ -15,12 +15,13 @@ class Retriever:
         
         self.entities = entities
         self.relations = relations
-        self.times_id = times_id
+        self.times_id = times_id    
         self.num_relations = num_relations
         self.chains = chains
         
         self.entities_flip = flip_dict(self.entities)
         self.relations_flip = flip_dict(self.relations)
+        self.times_id_flip = flip_dict(self.times_id)
         col_sub = []
         col_rel = []
         col_obj = []
@@ -75,11 +76,12 @@ class Retriever:
         return test_idx, test_text
     
     def tlogic_prepro(self, i):
-        print(self.test[i].strip().split("\t"))
-        test_sub, test_rel, _, test_time, _ = self.test[i].strip().split("\t")
+        #print(self.test[i])
+        test_sub, test_rel, _, test_time = self.test[i].strip().split("\t")
+        #print(self.relations_flip)
         #First of all, there must be a time premise of retrieve s_t
         #Here we need to find out the idx of test in all_facts so that it can be removed
-        idx_test = len(self.all_facts)- (len(self.test)-1) + i -1
+        idx_test = len(self.all_facts) - (len(self.test)-1) + i - 1
         # #The major premise is that retrieval must be performed from those ranges earlier than test_time
         idx_t = np.where(self.col_time < test_time)[0] 
         s_t = set(idx_t)
@@ -89,8 +91,8 @@ class Retriever:
         idx_test_sub = np.where(self.col_sub == test_sub)[0]
         s_test_sub = set(idx_test_sub)
         s_0 = s_t & s_test_sub #Get: major premise
-        head_rel = self.relations[test_rel] #Get the idx corresponding to test_relation: 0,1,2,...
-        time = self.times_id[test_time] #To move forward the time according to the id corresponding relationship of time. Get int from str
+        head_rel = self.relations[int(test_rel)] #Get the idx corresponding to test_relation: 0,1,2,...
+        time = self.times_id[str(test_time)] #To move forward the time according to the id corresponding relationship of time. Get int from str
         return s_0, s_t, head_rel, time, test_sub, test_rel
     
     def build_tl(self):

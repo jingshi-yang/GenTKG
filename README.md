@@ -75,7 +75,7 @@ python3 ./data_utils/retrieve.py --name_of_rules_file name_rules.json --dataset 
 ```
 An example for icews18 would be like:
 ```
-python ./data_utils/retrieve.py --name_of_rules_file 060723022344_r[1]_n200_exp_s12_rules.json --dataset icews18
+python ./data_utils/retrieve.py --name_of_rules_file 300625013351_r[1,2,3]_n200_exp_s12_rules.json --dataset icews18
 ```
 By default you will create these following files:
 - data/processed_new/{dataset}/[train, valid, test]/history_facts/history_facts_{dataset}.txt [A]
